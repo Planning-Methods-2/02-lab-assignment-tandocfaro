@@ -20,30 +20,30 @@
 ## ---- Part 1.1: Loading data from R pre-loaded packages ----
 
 data() # shows all preloaded data available in R in the datasets package
-help(package="datasets")
+help(package="datasets") # shows the documentation of the package called datasets
 
 #Let's us the Violent Crime Rates by US State data 
 
-help("USArrests")
+help("USArrests") # shows the documentation of the USArrests dataset
 
 # Step 1. Load the data in you session by creating an object
 
 usa_arrests<-datasets::USArrests # this looks the object 'USAarrests' within '::' the package 'datasets'
 
-class(usa_arrests)
-names(usa_arrests)
-dim(usa_arrests)
-head(usa_arrests)
-tail(usa_arrests)
+class(usa_arrests) # Identifies the class of the dataset inside usa_arrests
+names(usa_arrests) # Identifies the columns in the dataset inside usa_arrests
+dim(usa_arrests) # Identifies the total number of rows and columns respectively.
+head(usa_arrests) # Shows the first 6 rows in the dataset
+tail(usa_arrests) # Shows the last 6 rows in the dataset
 
 ## ---- Part 1.2: Loading data from your computer directory ----
 # We will use the Building Permits data from the city of San Antonio open data portal
 # Source: https://data.sanantonio.gov/dataset/building-permits/resource/c21106f9-3ef5-4f3a-8604-f992b4db7512
 
-building_permits_sa<-read.csv(file = "datasets/accelaissuedpermitsextract.csv",header = T)
+building_permits_sa<-read.csv(file = "datasets/accelaissuedpermitsextract.csv",header = T) # Saves the dataset/csv file under the name of building_permits_sa
 
-names(building_permits_sa)
-View(building_permits_sa)
+names(building_permits_sa) # Identifies the column names in the dataset inside building_permits_sa
+View(building_permits_sa) 
 class(building_permits_sa)
 dim(building_permits_sa)
 str(building_permits_sa)
