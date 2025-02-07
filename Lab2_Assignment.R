@@ -9,21 +9,40 @@
 # 2. [60 points] Open the R file "Lab2_Assignment.R" and answer the questions
 
 #---- Q1. write the code to load the dataset "tract_covariates.csv" located under the "datasets" folder in your repository. Create an object called `opportunities` Use the data.table package to do this. ----
-#test2
+
+install.packages("data.table")
+library(data.table)
+
+tract_covariates <- read.csv("D:/Documents/Methods 2/02-lab-assignment-tandocfaro/datasets/tract_covariates.csv")
+
+opportunities <- data.table(tract_covariates)
+
+
 
 #---- Q2. On your browser, read and become familiar with the dataset metadata. Next write the code for the following:
 # Link to metadata: https://opportunityinsights.org/wp-content/uploads/2019/07/Codebook-for-Table-9.pdf 
 
+codebook <- fread("https://opportunityinsights.org/wp-content/uploads/2019/07/Codebook-for-Table-9.pdf")
+
 # what is the object class?
+class(opportunities)
+
 
 # how can I know the variable names?
+names(opportunities)
+
 
 # What is the unit of analysis? 
+str(opportunities)
+
 
 # Use the `summary` function to describe the data. What is the variable that provides more interest to you?
 
+summary(opportunities)
+
 # Create a new object called `sa_opportunities` that only contains the rows for the San Antonio area (hint: use the `czname` variable). 
 
+sa_opportunities <- opportunities$czname == "San Antonio"
 
 # Create a plot that shows the ranking of the top 10 census tracts by Annualized job growth rate (`ann_avg_job_growth_2004_2013` variable) by census tract (tract variable). Save the resulting plot as a pdf with the name 'githubusername_p1.pdf' # Hint: for ordering you could use the `setorderv()` or reorder() functions, and the ggsave() function to export the plot to pdf. 
 
